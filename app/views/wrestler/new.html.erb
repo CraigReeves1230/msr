@@ -1,0 +1,54 @@
+<h3><%= link_to "Home", root_path %></h3>
+<h1>Rate Wrestler</h1>
+
+<%= form_for :wrestler, url: wres_results_path do |f| %>
+    <%= f.label "Name" %><br>
+    <%= f.text_field :name %><br><br>
+    <h2>EXECUTION</h2>
+    <%= f.label "Striking" %><br>
+    <%= f.text_field :striking %><br><br>
+    <%= f.label "Submissions" %><br>
+    <%= f.text_field :submission %><br><br>
+    <%= f.label "Slams and Throws" %><br>
+    <%= f.text_field :slams %><br><br>
+    <%= f.label "Sell Timing" %><br>
+    <%= f.text_field :sell_timing %><br><br>
+    <%= f.label "Transitioning and Movement" %><br>
+    <%= f.text_field :transition %><br><br>
+    <%= f.label "Matt and Chain Wrestling" %><br>
+    <%= f.text_field :matt_and_chain %><br><br>
+    <%= f.label "Setting Up" %><br>
+    <%= f.text_field :setting_up %><br><br>
+    <%= f.label "Bumping" %><br>
+    <%= f.text_field :bumping %><br><br>
+
+    <h2>ABILITY</h2>
+    <%= f.label "Technical Ability" %><br>
+    <%= f.text_field :technical %><br><br>
+    <%= f.label "High Flying Ability" %><br>
+    <%= f.text_field :high_fly %><br><br>
+    <%= f.label "Power Move Ability" %><br>
+    <%= f.text_field :power %><br><br>
+    <%= f.label "Reaction Time" %><br>
+    <%= f.text_field :reaction_time %><br><br>
+    <%= f.label "Durability/Resilience" %><br>
+    <%= f.text_field :durability %><br><br>
+    <%= f.label "Conditioning" %><br>
+    <%= f.text_field :conditioning %><br><br>
+    <%= f.label "Basing" %><br>
+    <%= f.text_field :basing %><br><br>
+
+    <h2>RING PSYCHOLOGY</h2>
+    <%= f.label "Babyface Shine" %><br>
+    <%= f.text_field :shine %><br><br>
+    <%= f.label "Heel Heat" %><br>
+    <%= f.text_field :heel_heat %><br><br>
+    <%= f.label "Comebacks/Hope Spots" %><br>
+    <%= f.text_field :comebacks %><br><br>
+    <%= f.label "Selling/Facials" %><br>
+    <%= f.text_field :facials_and_selling %><br><br>
+    <%= f.label "Ring Awareness/Ring General-ship" %><br>
+    <%= f.text_field :ring_awareness %><br><br>
+
+    <%= f.submit "Submit/Save" %>
+<% end %>

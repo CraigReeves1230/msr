@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  execution: 1.5
+  heat: 1.5
+  action: 1.5
+  layout: 1.5
+  selling: 1.5
+  factoring_heat: false
+  score: 1.5
+  star_rating: MyString
+
+two:
+  execution: 1.5
+  heat: 1.5
+  action: 1.5
+  layout: 1.5
+  selling: 1.5
+  factoring_heat: false
+  score: 1.5
+  star_rating: MyString

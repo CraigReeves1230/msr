@@ -1,0 +1,22 @@
+<div>
+  <h3><%= link_to "Home", root_path %></h3>
+  <h1>Match Star Rater</h1>
+<%= form_for @match do |f| %>
+
+    <%= f.label :factoring_heat %><br><br>
+    <%= f.check_box :factoring_heat %><br><br>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br><br>
+    <%= f.label :execution %><br>
+    <%= f.text_field :execution %><br><br>
+    <%= f.label :heat %><br>
+    <%= f.text_field :heat %><br><br>
+    <%= f.label :action %><br>
+    <%= f.text_field :action %><br><br>
+    <%= f.label :layout %><br>
+    <%= f.text_field :layout %><br><br>
+    <%= f.label :selling %><br>
+    <%= f.text_field :selling %><br><br>
+    <%= f.submit "Rate Result" %>
+<% end %>
+</div>
