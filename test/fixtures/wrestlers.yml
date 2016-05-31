@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  execution: 1.5
+  slams: 1.5
+  submission: 1.5
+  sell_timing: 1.5
+  setting_up: 1.5
+  transition: 1.5
+  mat_and_chain: 1.5
+  bumping: 1.5
+  technical: 1.5
+  power: 1.5
+  high_fly: 1.5
+  durability: 1.5
+  conditioning: 1.5
+  basing: 1.5
+  basing: 1.5
+  reaction_time: 1.5
+  ability: 1.5
+  shine: 1.5
+  heat: 1.5
+  comebacks: 1.5
+  selling: 1.5
+  ring_awareness: 1.5
+
+two:
+  execution: 1.5
+  slams: 1.5
+  submission: 1.5
+  sell_timing: 1.5
+  setting_up: 1.5
+  transition: 1.5
+  mat_and_chain: 1.5
+  bumping: 1.5
+  technical: 1.5
+  power: 1.5
+  high_fly: 1.5
+  durability: 1.5
+  conditioning: 1.5
+  basing: 1.5
+  basing: 1.5
+  reaction_time: 1.5
+  ability: 1.5
+  shine: 1.5
+  heat: 1.5
+  comebacks: 1.5
+  selling: 1.5
+  ring_awareness: 1.5
