@@ -46,38 +46,37 @@ class WrestlerController < ApplicationController
 
     # send to results page
     render 'wrestler/wrestler_score'
-
   end
 
   def execution_score
-    striking = @wrestler.striking
-    slams = @wrestler.slams
-    submission = @wrestler.submission
-    sell_timing = @wrestler.sell_timing
-    mat_and_chain = @wrestler.mat_and_chain
-    transition = @wrestler.transition
-    setting_up = @wrestler.setting_up
-    bumping = @wrestler.bumping
+    striking = @wrestler.striking.to_f
+    slams = @wrestler.slams.to_f
+    submission = @wrestler.submission.to_f
+    sell_timing = @wrestler.sell_timing.to_f
+    mat_and_chain = @wrestler.mat_and_chain.to_f
+    transition = @wrestler.transition.to_f
+    setting_up = @wrestler.setting_up.to_f
+    bumping = @wrestler.bumping.to_f
     (striking + slams + submission + sell_timing + mat_and_chain + transition + setting_up + bumping) / 8.0
   end
 
   def ability_score
-    technical = @wrestler.technical
-    high_fly = @wrestler.high_fly
-    power = @wrestler.power
-    conditioning = @wrestler.conditioning
-    durability = @wrestler.durability
-    basing = @wrestler.basing
-    reaction_time = @wrestler.reaction_time
+    technical = @wrestler.technical.to_f
+    high_fly = @wrestler.high_fly.to_f
+    power = @wrestler.power.to_f
+    conditioning = @wrestler.conditioning.to_f
+    durability = @wrestler.durability.to_f
+    basing = @wrestler.basing.to_f
+    reaction_time = @wrestler.reaction_time.to_f
     (technical + high_fly + power + conditioning + durability + basing + reaction_time) / 7.0
   end
 
   def psych_score
-    shine = @wrestler.shine
-    heat = @wrestler.heat
-    selling = @wrestler.selling
-    comebacks = @wrestler.comebacks
-    ring_awareness = @wrestler.ring_awareness
+    shine = @wrestler.shine.to_f
+    heat = @wrestler.heat.to_f
+    selling = @wrestler.selling.to_f
+    comebacks = @wrestler.comebacks.to_f
+    ring_awareness = @wrestler.ring_awareness.to_f
     (shine + heat + selling + comebacks + ring_awareness) / 5.0
   end
 
