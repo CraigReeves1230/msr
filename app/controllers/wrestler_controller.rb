@@ -1,50 +1,86 @@
 class WrestlerController < ApplicationController
 
+  include WrestlerHelper
+
   def new
-    @wrestler = Result.new
+    @wrestler = Wrestler.new
   end
 
   def show
-    @wrestler = Result.new
+    @wrestler = Wrestler.new
+
+    # assign params to instance
     @wrestler.name = params[:wrestler][:name]
+    @wrestler.striking = params[:wrestler][:striking]
+    @wrestler.slams = params[:wrestler][:slams]
+    @wrestler.submission = params[:wrestler][:submission]
+    @wrestler.sell_timing = params[:wrestler][:sell_timing]
+    @wrestler.mat_and_chain = params[:wrestler][:mat_and_chain]
+    @wrestler.transition = params[:wrestler][:transition]
+    @wrestler.setting_up = params[:wrestler][:setting_up]
+    @wrestler.bumping = params[:wrestler][:bumping]
+
+    @wrestler.technical = params[:wrestler][:technical]
+    @wrestler.high_fly = params[:wrestler][:high_fly]
+    @wrestler.power = params[:wrestler][:power]
+    @wrestler.conditioning = params[:wrestler][:conditioning]
+    @wrestler.durability = params[:wrestler][:durability]
+    @wrestler.basing = params[:wrestler][:basing]
+    @wrestler.reaction_time = params[:wrestler][:reaction_time]
+
+    @wrestler.shine = params[:wrestler][:shine]
+    @wrestler.heat = params[:wrestler][:heat]
+    @wrestler.ring_awareness = params[:wrestler][:ring_awareness]
+    @wrestler.selling = params[:wrestler][:selling]
+    @wrestler.comebacks = params[:wrestler][:comebacks]
+
     @wrestler.execution = execution_score
-    @wrestler.layout = psych_score
-    @wrestler.action = ability_score
-    @wrestler.score = @wrestler.calculate_score(execution_score, 0.0, ability_score, psych_score, psych_score, false)
+    @wrestler.ability = ability_score
+    @wrestler.psychology = psych_score
+
+    # calculate match score
+    @wrestler.score = @wrestler.calculate_score(execution_score, ability_score, psych_score)
+
+    #store star rating
     @wrestler.star_rating = @wrestler.convert_to_star_rating(@wrestler.score)
+
+    # send to results page
     render 'wrestler/wrestler_score'
-  end
 
-  def psych_score
-    shine = params[:wrestler][:shine].to_f
-    heat = params[:wrestler][:heel_heat].to_f
-    awareness = params[:wrestler][:ring_awareness].to_f
-    comebacks = params[:wrestler][:comebacks].to_f
-    selling = params[:wrestler][:facials_and_selling].to_f
-    (shine + heat + awareness + comebacks + selling) / 5.0
-  end
-
-  def ability_score
-    technical = params[:wrestler][:technical].to_f
-    highfly = params[:wrestler][:high_fly].to_f
-    durability = params[:wrestler][:durability].to_f
-    reaction = params[:wrestler][:reaction_time].to_f
-    conditioning = params[:wrestler][:conditioning].to_f
-    power = params[:wrestler][:power].to_f
-    basing = params[:wrestler][:basing].to_f
-    (technical + highfly + durability + reaction + conditioning + power + basing) / 7.0
   end
 
   def execution_score
-    strike = params[:wrestler][:striking].to_f
-    sub = params[:wrestler][:submission].to_f
-    mat = params[:wrestler][:matt_and_chain].to_f
-    trans = params[:wrestler][:transition].to_f
-    bump = params[:wrestler][:bumping].to_f
-    selltime = params[:wrestler][:sell_timing].to_f
-    settingup = params[:wrestler][:setting_up].to_f
-    slams = params[:wrestler][:slams].to_f
-    (strike + sub + mat + trans + bump + selltime + settingup + slams) / 8.0
+    striking = @wrestler.striking
+    slams = @wrestler.slams
+    submission = @wrestler.submission
+    sell_timing = @wrestler.sell_timing
+    mat_and_chain = @wrestler.mat_and_chain
+    transition = @wrestler.transition
+    setting_up = @wrestler.setting_up
+    bumping = @wrestler.bumping
+    (striking + slams + submission + sell_timing + mat_and_chain + transition + setting_up + bumping) / 8.0
+  end
+
+  def ability_score
+    technical = @wrestler.technical
+    high_fly = @wrestler.high_fly
+    power = @wrestler.power
+    conditioning = @wrestler.conditioning
+    durability = @wrestler.durability
+    basing = @wrestler.basing
+    reaction_time = @wrestler.reaction_time
+    (technical + high_fly + power + conditioning + durability + basing + reaction_time) / 7.0
+  end
+
+  def psych_score
+    shine = @wrestler.shine
+    heat = @wrestler.heat
+    selling = @wrestler.selling
+    comebacks = @wrestler.comebacks
+    ring_awareness = @wrestler.ring_awareness
+    (shine + heat + selling + comebacks + ring_awareness) / 5.0
   end
 
 end
+
+

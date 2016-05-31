@@ -9,7 +9,6 @@ module ResultsHelper
     selling = selling.to_f
     layout = layout.to_f
 
-
     # Factoring heat
     self.factoring_heat = factoring_heat
 

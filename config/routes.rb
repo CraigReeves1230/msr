@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   get 'new_wrestler' => 'wrestler#new'
   post 'wres_results' => 'wrestler#show'
+  post 'save' => 'wrestler#save'
 
   end

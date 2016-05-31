@@ -1,7 +1,7 @@
 <h3><%= link_to "Home", root_path %></h3>
 <h1>Rate Wrestler</h1>
 
-<%= form_for :wrestler, url: wres_results_path do |f| %>
+<%= form_for @wrestler, url: wres_results_path do |f| %>
     <%= f.label "Name" %><br>
     <%= f.text_field :name %><br><br>
     <h2>EXECUTION</h2>
@@ -16,7 +16,7 @@
     <%= f.label "Transitioning and Movement" %><br>
     <%= f.text_field :transition %><br><br>
     <%= f.label "Matt and Chain Wrestling" %><br>
-    <%= f.text_field :matt_and_chain %><br><br>
+    <%= f.text_field :mat_and_chain %><br><br>
     <%= f.label "Setting Up" %><br>
     <%= f.text_field :setting_up %><br><br>
     <%= f.label "Bumping" %><br>
@@ -42,11 +42,11 @@
     <%= f.label "Babyface Shine" %><br>
     <%= f.text_field :shine %><br><br>
     <%= f.label "Heel Heat" %><br>
-    <%= f.text_field :heel_heat %><br><br>
+    <%= f.text_field :heat %><br><br>
     <%= f.label "Comebacks/Hope Spots" %><br>
     <%= f.text_field :comebacks %><br><br>
     <%= f.label "Selling/Facials" %><br>
-    <%= f.text_field :facials_and_selling %><br><br>
+    <%= f.text_field :selling %><br><br>
     <%= f.label "Ring Awareness/Ring General-ship" %><br>
     <%= f.text_field :ring_awareness %><br><br>
 
