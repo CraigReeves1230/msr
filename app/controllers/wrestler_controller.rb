@@ -46,6 +46,7 @@ class WrestlerController < ApplicationController
 
     # send to results page
     render 'wrestler/wrestler_score'
+
   end
 
   def execution_score
@@ -79,6 +80,23 @@ class WrestlerController < ApplicationController
     ring_awareness = @wrestler.ring_awareness.to_f
     (shine + heat + selling + comebacks + ring_awareness) / 5.0
   end
+
+  def save
+    ActionController::Parameters.permit_all_parameters = true
+    @wrestler = Wrestler.new(params[:wrestler])
+    @wrestler.save
+    redirect_to root_url
+  end
+
+  def index
+    @wrestlers = Wrestler.all
+  end
+
+  private
+
+    def wrestler_params
+      params.permit(:wrestler)
+    end
 
 end
 

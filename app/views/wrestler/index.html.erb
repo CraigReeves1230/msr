@@ -1,0 +1,12 @@
+
+<h1>Wrestlers</h1>
+
+<% @wrestlers.each do |wrestler| %>
+    <h3><%= wrestler.name %></h3>
+    <p>Execution: <%= convert_to_star_rating(wrestler.execution) %><br>
+      Ability: <%= convert_to_star_rating(wrestler.ability) %><br>
+      Psychology: <%= convert_to_star_rating(wrestler.psychology) %><br><br>
+      Overall: <%= wrestler.score.round(1)%>
+      Star Rating: <%= convert_to_star_rating(wrestler.score) %>
+    </p>
+<% end %>

@@ -5,4 +5,38 @@
 <h2>Overall: <%= @wrestler.score.round(1) %></h2>
 <h2>Star Rating: <%= @wrestler.star_rating %></h2>
 
+<%= form_for @wrestler, url: wres_save_path do |f|%>
+    <%= f.hidden_field :striking, value: @wrestler.striking %>
+    <%= f.hidden_field :slams, value: @wrestler.slams %>
+    <%= f.hidden_field :submission, value: @wrestler.submission %>
+    <%= f.hidden_field :sell_timing, value: @wrestler.sell_timing %>
+    <%= f.hidden_field :setting_up, value: @wrestler.setting_up %>
+    <%= f.hidden_field :transition, value: @wrestler.transition %>
+    <%= f.hidden_field :mat_and_chain, value: @wrestler.mat_and_chain %>
+    <%= f.hidden_field :bumping, value: @wrestler.bumping %>
+    <%= f.hidden_field :technical, value: @wrestler.technical %>
+    <%= f.hidden_field :power, value: @wrestler.power %>
+    <%= f.hidden_field :high_fly, value: @wrestler.high_fly %>
+    <%= f.hidden_field :durability, value: @wrestler.durability %>
+    <%= f.hidden_field :conditioning, value: @wrestler.conditioning %>
+    <%= f.hidden_field :basing, value: @wrestler.basing %>
+    <%= f.hidden_field :reaction_time, value: @wrestler.reaction_time %>
+    <%= f.hidden_field :ability, value: @wrestler.ability %>
+    <%= f.hidden_field :shine, value: @wrestler.shine %>
+    <%= f.hidden_field :heat, value: @wrestler.heat %>
+    <%= f.hidden_field :comebacks, value: @wrestler.comebacks %>
+    <%= f.hidden_field :selling, value: @wrestler.selling %>
+    <%= f.hidden_field :ring_awareness, value: @wrestler.ring_awareness %>
+    <%= f.hidden_field :psychology, value: @wrestler.psychology %>
+    <%= f.hidden_field :name, value: @wrestler.name %>
+    <%= f.hidden_field :execution, value: @wrestler.execution %>
+    <%= f.hidden_field :score, value: @wrestler.score %>
+    <%= f.hidden_field :star_rating, value: @wrestler.star_rating %>
+    <%= f.submit 'Save Wrestler' %>
+<% end %>
+
+
+
+
+
 
