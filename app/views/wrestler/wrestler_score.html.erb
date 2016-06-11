@@ -2,7 +2,7 @@
 <h3>Execution: <%= @wrestler.convert_to_star_rating(@wrestler.execution) %></h3>
 <h3>Ability: <%= @wrestler.convert_to_star_rating(@wrestler.ability) %></h3>
 <h3>Psychology: <%= @wrestler.convert_to_star_rating(@wrestler.psychology) %></h3>
-<h2>Overall: <%= @wrestler.score.round(1) %></h2>
+<h2>Overall: <%= @wrestler.score.round(2) %></h2>
 <h2>Star Rating: <%= @wrestler.star_rating %></h2>
 
 <%= form_for @wrestler, url: wres_save_path do |f|%>

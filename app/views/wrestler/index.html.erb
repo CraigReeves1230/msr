@@ -1,12 +1,15 @@
 
-<h1>Wrestlers</h1>
-
-<% @wrestlers.each do |wrestler| %>
-    <h3><%= wrestler.name %></h3>
-    <p>Execution: <%= convert_to_star_rating(wrestler.execution) %><br>
-      Ability: <%= convert_to_star_rating(wrestler.ability) %><br>
-      Psychology: <%= convert_to_star_rating(wrestler.psychology) %><br><br>
-      Overall: <%= wrestler.score.round(1)%>
-      Star Rating: <%= convert_to_star_rating(wrestler.score) %>
-    </p>
+<% if @wrestlers.any? %>
+  <h1>Wrestlers</h1>
+  <% @wrestlers.each do |wrestler| %>
+      <u><h3><%= wrestler.name %></h3></u>
+      <p>Execution: <%= convert_to_star_rating(wrestler.execution) %><br>
+        Ability: <%= convert_to_star_rating(wrestler.ability) %><br>
+        Psychology: <%= convert_to_star_rating(wrestler.psychology) %><br><br>
+        <b>Overall: <%= wrestler.score.round(2)%> (<%= convert_to_star_rating(wrestler.score) %>)</b>
+      </p>
+  <% end %>
+<% else %>
+    <h1>No wrestlers saved.</h1>
+    <%= link_to "Click here to create a wrestler.", new_wrestler_path %>
 <% end %>
