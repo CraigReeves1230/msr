@@ -3,6 +3,9 @@ class Wrestler < ActiveRecord::Base
   #Mix in helper
   include ResultsHelper
 
+  # Default scope
+  default_scope -> { order('name ASC')}
+
   # No two wrestlers should be able to have the same name
   validates(:name, presence: true, uniqueness: true)
   
