@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   post 'wres_results' => 'wrestler#show'
   post 'wres_save' => 'wrestler#save'
   get 'all_wrestlers' => 'wrestler#index'
+  resources :wrestler, only: [:update, :edit, :destroy]
+
 
   end

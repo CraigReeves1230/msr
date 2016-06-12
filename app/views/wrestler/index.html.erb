@@ -6,10 +6,15 @@
       <p>Execution: <%= convert_to_star_rating(wrestler.execution) %><br>
         Ability: <%= convert_to_star_rating(wrestler.ability) %><br>
         Psychology: <%= convert_to_star_rating(wrestler.psychology) %><br><br>
-        <b>Overall: <%= wrestler.score.round(2)%> (<%= convert_to_star_rating(wrestler.score) %>)</b>
-      </p>
+        <b>Overall: <%= wrestler.score.round(2)%> (<%= convert_to_star_rating(wrestler.score) %>)</b><br><br>
+        <%= link_to "Edit Wrestler", edit_wrestler_path(wrestler) %><br>
+        <%= link_to "Delete Wrestler", "wrestler/#{wrestler.id}", method: :delete,
+                    data: {confirm: "Are you Sure you want to delete #{wrestler.name}?"} %>
+      </p><br>
   <% end %>
 <% else %>
     <h1>No wrestlers saved.</h1>
-    <%= link_to "Click here to create a wrestler.", new_wrestler_path %>
 <% end %>
+<br><br><br>
+<%= link_to "Click here to add a new wrestler", new_wrestler_path %>
+<h2><%= link_to "Home", root_path %></h2>

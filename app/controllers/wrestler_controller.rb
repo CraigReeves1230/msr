@@ -38,7 +38,7 @@ class WrestlerController < ApplicationController
     @wrestler.ability = ability_score
     @wrestler.psychology = psych_score
 
-    # calculate match score
+    # calculate wrestler score
     @wrestler.score = @wrestler.calculate_score(execution_score, ability_score, psych_score)
 
     #store star rating
@@ -85,11 +85,64 @@ class WrestlerController < ApplicationController
     ActionController::Parameters.permit_all_parameters = true
     @wrestler = Wrestler.new(params[:wrestler])
     @wrestler.save
-    redirect_to root_url
+    redirect_to all_wrestlers_url
   end
 
   def index
     @wrestlers = Wrestler.all
+  end
+
+  def edit
+    @wrestler = Wrestler.find_by( :id => params[:id])
+  end
+
+  def destroy
+    Wrestler.destroy(params[:id])
+    redirect_to all_wrestlers_url
+  end
+
+  def update
+    ActionController::Parameters.permit_all_parameters = true
+    @wrestler = Wrestler.find(params[:wrestler][:id])
+
+    # assign params to instance
+    @wrestler.name = params[:wrestler][:name]
+    @wrestler.striking = params[:wrestler][:striking]
+    @wrestler.slams = params[:wrestler][:slams]
+    @wrestler.submission = params[:wrestler][:submission]
+    @wrestler.sell_timing = params[:wrestler][:sell_timing]
+    @wrestler.mat_and_chain = params[:wrestler][:mat_and_chain]
+    @wrestler.transition = params[:wrestler][:transition]
+    @wrestler.setting_up = params[:wrestler][:setting_up]
+    @wrestler.bumping = params[:wrestler][:bumping]
+
+    @wrestler.technical = params[:wrestler][:technical]
+    @wrestler.high_fly = params[:wrestler][:high_fly]
+    @wrestler.power = params[:wrestler][:power]
+    @wrestler.conditioning = params[:wrestler][:conditioning]
+    @wrestler.durability = params[:wrestler][:durability]
+    @wrestler.basing = params[:wrestler][:basing]
+    @wrestler.reaction_time = params[:wrestler][:reaction_time]
+
+    @wrestler.shine = params[:wrestler][:shine]
+    @wrestler.heat = params[:wrestler][:heat]
+    @wrestler.ring_awareness = params[:wrestler][:ring_awareness]
+    @wrestler.selling = params[:wrestler][:selling]
+    @wrestler.comebacks = params[:wrestler][:comebacks]
+
+    @wrestler.execution = execution_score
+    @wrestler.ability = ability_score
+    @wrestler.psychology = psych_score
+
+    # calculate wrestler score
+    @wrestler.score = @wrestler.calculate_score(execution_score, ability_score, psych_score)
+
+    #store star rating
+    @wrestler.star_rating = @wrestler.convert_to_star_rating(@wrestler.score)
+
+    #save wrestler
+    @wrestler.save!
+    redirect_to all_wrestlers_url
   end
 
   private

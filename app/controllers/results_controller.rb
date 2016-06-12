@@ -2,6 +2,8 @@ class ResultsController < ApplicationController
 
   def new
     @match = Result.new
+    # By default, factor heat
+    @match.factoring_heat = true
   end
 
   def home
